@@ -9,6 +9,7 @@ const lightboxCaption = document.querySelector(".lightbox__caption");
 const lightboxClose = document.querySelector(".lightbox__close");
 const lightboxPrev = document.querySelector(".lightbox__nav--prev");
 const lightboxNext = document.querySelector(".lightbox__nav--next");
+const trackableElements = document.querySelectorAll("[data-meta-track]");
 
 const galleryItems = [
   "assets/gallery/drive-download-20260313T043817Z-3-001/20250427_133220.jpg",
@@ -50,6 +51,34 @@ let currentGalleryIndex = 0;
 let lastFocusedElement = null;
 let touchStartX = 0;
 let touchEndX = 0;
+
+const trackMetaEvent = (eventName, parameters = {}) => {
+  if (typeof window.fbq !== "function") {
+    return;
+  }
+
+  window.fbq("trackCustom", eventName, parameters);
+};
+
+trackableElements.forEach((element) => {
+  element.addEventListener("click", () => {
+    const trackType = element.getAttribute("data-meta-track");
+
+    if (trackType === "whatsapp-click") {
+      trackMetaEvent("WhatsAppClick", {
+        destination: "https://wa.me/923324567825",
+        location: "omarone-site"
+      });
+    }
+
+    if (trackType === "map-click") {
+      trackMetaEvent("MapClick", {
+        destination: "https://maps.app.goo.gl/iXpZPbL6EjSSsv6q6",
+        location: "rawalakot-kashmir"
+      });
+    }
+  });
+});
 
 if (navShell && navToggle && navLinks) {
   const closeMenu = () => {
@@ -149,6 +178,10 @@ if (lightbox && lightboxImage && lightboxCaption) {
 
   galleryTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
+      trackMetaEvent("GalleryOpen", {
+        source: "site-navigation"
+      });
+
       if (window.innerWidth < 720) {
         navShell?.classList.remove("nav-open");
         navLinks?.classList.remove("is-open");
