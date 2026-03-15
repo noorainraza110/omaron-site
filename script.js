@@ -57,7 +57,7 @@ const trackMetaEvent = (eventName, parameters = {}) => {
     return;
   }
 
-  window.fbq("trackCustom", eventName, parameters);
+  window.fbq("track", eventName, parameters);
 };
 
 trackableElements.forEach((element) => {
@@ -65,14 +65,14 @@ trackableElements.forEach((element) => {
     const trackType = element.getAttribute("data-meta-track");
 
     if (trackType === "whatsapp-click") {
-      trackMetaEvent("WhatsAppClick", {
+      trackMetaEvent("Contact", {
         destination: "https://wa.me/923324567825",
         location: "omarone-site"
       });
     }
 
     if (trackType === "map-click") {
-      trackMetaEvent("MapClick", {
+      trackMetaEvent("FindLocation", {
         destination: "https://maps.app.goo.gl/iXpZPbL6EjSSsv6q6",
         location: "rawalakot-kashmir"
       });
@@ -178,7 +178,7 @@ if (lightbox && lightboxImage && lightboxCaption) {
 
   galleryTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
-      trackMetaEvent("GalleryOpen", {
+      trackMetaEvent("ViewContent", {
         source: "site-navigation"
       });
 
