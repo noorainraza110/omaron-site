@@ -333,8 +333,9 @@ a {
   position: relative;
   z-index: 1;
   max-width: var(--max-width);
-  margin: -0.35rem auto 0;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  background: var(--linen);
 }
 
 .hero-gallery__track {
@@ -768,8 +769,7 @@ a {
   }
 
   .hero-gallery {
-    padding: 0 1.25rem;
-    margin-top: -1rem;
+    padding: 2rem 1.25rem;
   }
 
   .hero-gallery__track {
@@ -861,8 +861,7 @@ a {
   }
 
   .hero-gallery {
-    margin-top: -0.1rem;
-    padding-inline: 0.85rem;
+    padding: 1.35rem 0.85rem;
   }
 
   .hero-gallery__track {
