@@ -4,6 +4,14 @@ const navLinks = document.querySelector(".nav-links");
 const menuLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const trackableElements = document.querySelectorAll("[data-meta-track]");
 
+const trackGoogleEvent = (eventName, parameters = {}) => {
+  if (typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", eventName, parameters);
+};
+
 const trackMetaEvent = (eventName, parameters = {}) => {
   if (typeof window.fbq !== "function") {
     return;
@@ -21,6 +29,10 @@ trackableElements.forEach((element) => {
         destination: "https://wa.me/923324567825",
         location: "omarone-site"
       });
+      trackGoogleEvent("generate_lead", {
+        method: "WhatsApp",
+        destination: "https://wa.me/923324567825"
+      });
     }
 
     if (trackType === "map-click") {
@@ -28,10 +40,18 @@ trackableElements.forEach((element) => {
         destination: "https://maps.app.goo.gl/iXpZPbL6EjSSsv6q6",
         location: "rawalakot-kashmir"
       });
+      trackGoogleEvent("find_location", {
+        destination: "https://maps.app.goo.gl/iXpZPbL6EjSSsv6q6",
+        location: "Rawalakot, Kashmir"
+      });
     }
 
     if (trackType === "gallery-open") {
       trackMetaEvent("ViewContent", {
+        destination: "https://omaronemountainhomes.pixieset.com/",
+        content_name: "pixieset-gallery"
+      });
+      trackGoogleEvent("view_gallery", {
         destination: "https://omaronemountainhomes.pixieset.com/",
         content_name: "pixieset-gallery"
       });
