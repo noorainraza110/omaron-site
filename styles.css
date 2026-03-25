@@ -248,7 +248,7 @@ a {
   background:
     linear-gradient(180deg, rgba(10, 24, 16, 0.2) 0%, rgba(10, 24, 16, 0.68) 84%),
     linear-gradient(120deg, rgba(24, 61, 37, 0.35), rgba(197, 160, 101, 0.1)),
-    url("assets/main banner.png") center center / cover no-repeat;
+    url("assets/optimized/main-banner.jpg") center center / cover no-repeat;
 }
 
 .hero__content,
