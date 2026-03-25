@@ -34,6 +34,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -96,7 +97,7 @@ a {
   width: 2.7rem;
   height: 2.7rem;
   flex: 0 0 auto;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .brand-lockup__text {
@@ -271,6 +272,7 @@ a {
 
 .hero__logo {
   width: min(15.5rem, 56vw);
+  height: auto;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.28));
 }
 
@@ -606,6 +608,7 @@ a {
 
 .footer-brand img {
   width: min(13rem, 50vw);
+  height: auto;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
 }
 

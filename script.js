@@ -4,38 +4,6 @@ const navLinks = document.querySelector(".nav-links");
 const menuLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const trackableElements = document.querySelectorAll("[data-meta-track]");
 
-const loadDeferredScripts = () => {
-  if (window.__omaroneDeferredScriptsLoaded) {
-    return;
-  }
-
-  window.__omaroneDeferredScriptsLoaded = true;
-
-  const googleScript = document.createElement("script");
-  googleScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-18018932946";
-  googleScript.async = true;
-  document.head.appendChild(googleScript);
-  window.gtag("config", "AW-18018932946");
-
-  const metaScript = document.createElement("script");
-  metaScript.src = "https://connect.facebook.net/en_US/fbevents.js";
-  metaScript.async = true;
-  metaScript.onload = () => {
-    window.fbq.loaded = true;
-    window.fbq("init", "1400947588733806");
-    window.fbq("track", "PageView");
-  };
-  document.head.appendChild(metaScript);
-};
-
-if ("requestIdleCallback" in window) {
-  window.requestIdleCallback(loadDeferredScripts, { timeout: 2500 });
-} else {
-  window.addEventListener("load", () => {
-    window.setTimeout(loadDeferredScripts, 1200);
-  }, { once: true });
-}
-
 const trackGoogleEvent = (eventName, parameters = {}) => {
   if (typeof window.gtag !== "function") {
     return;
