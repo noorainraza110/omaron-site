@@ -27,32 +27,33 @@
   <meta name="twitter:image" content="https://www.omarone.com/assets/main%20banner.png">
   <link rel="icon" href="assets/just icon.png">
   <link rel="preload" as="image" href="assets/optimized/main-banner.jpg" fetchpriority="high">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18018932946"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'AW-18018932946');
   </script>
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1400947588733806');
-    fbq('track', 'PageView');
+    window.fbq = window.fbq || function() {
+      (window.fbq.q = window.fbq.q || []).push(arguments);
+    };
+    window.fbq.q = window.fbq.q || [];
+    window.fbq.loaded = false;
+    window.fbq.version = '2.0';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
+    rel="preload"
+    as="style"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
+    onload="this.onload=null;this.rel='stylesheet'"
   >
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+  </noscript>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -142,7 +143,7 @@
   <header class="site-header">
     <nav class="nav-shell" aria-label="Primary">
       <a class="brand-lockup" href="#top" aria-label="OmarOne home">
-        <img class="brand-lockup__icon" src="assets/just icon.png" alt="">
+        <img class="brand-lockup__icon" src="assets/just icon.png" alt="" width="500" height="500">
         <span class="brand-lockup__text" aria-label="OmarOne">OmarONE</span>
       </a>
 
@@ -174,7 +175,7 @@
     <section class="hero" id="top">
       <div class="hero__backdrop"></div>
       <div class="hero__content">
-        <img class="hero__logo" src="assets/complete logo with icon.png" alt="OmarOne Mountain Homes & Retreats in Rawalakot, Kashmir">
+        <img class="hero__logo" src="assets/complete logo with icon.png" alt="OmarOne Mountain Homes & Retreats in Rawalakot, Kashmir" width="500" height="500" loading="eager" fetchpriority="high" decoding="async">
         <p class="eyebrow">Rawalakot, Kashmir</p>
         <h1>Reconnect with nature.</h1>
         <p class="hero__lead">
@@ -357,7 +358,7 @@
 
   <footer class="site-footer">
     <div class="footer-brand">
-      <img src="assets/complete logo with icon.png" alt="OmarOne Mountain Homes & Retreats">
+      <img src="assets/complete logo with icon.png" alt="OmarOne Mountain Homes & Retreats" width="500" height="500" loading="lazy" decoding="async">
       <p>Mountain homes and retreats designed for restorative stays in Rawalakot, Kashmir.</p>
     </div>
 
